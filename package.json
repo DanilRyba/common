@@ -1,0 +1,36 @@
+{
+  "name": "@danilryba/common",
+  "version": "1.0.3",
+  "description": "Simple utilities for JS/TS projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanilRyba/common.git"
+  },
+  "author": "Danil Rybalchenko <danil.ryba01@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanilRyba/common/issues"
+  },
+  "homepage": "https://github.com/DanilRyba/common#readme",
+  "scripts": {
+    "build": "tsc -P tsconfig.build.json",
+    "build:clean": "rimraf ./lib && npm run build",
+    "copy-for-publish": "cpy package.json LICENSE README.md lib/",
+    "publish:npm": "npm run build:clean && npm run copy-for-publish && cd lib && npm publish"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "cpy-cli": "^4.2.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.3"
+  },
+  "keywords": [
+    "common",
+    "utils",
+    "events",
+    "typescript"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
