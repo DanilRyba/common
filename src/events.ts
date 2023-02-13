@@ -1,5 +1,6 @@
-import { EventConfig, EventHandler, IEvent } from "abstractions/events";
-import { executeForEach } from "helpers/array";
+import { executeForEach } from "./helpers/array";
+
+import { EventConfig, EventHandler, IEvent } from "./types/events";
 
 export class Event<T = unknown> implements IEvent<T> {
     private readonly _name: string;
