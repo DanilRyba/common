@@ -1,22 +1,15 @@
 import { executeForEach } from "./helpers/array";
 
-import { EventConfig, EventHandler, IEvent } from "./types/events";
+import { EventHandler, IEvent } from "./types/events";
 
 export class Event<T = unknown> implements IEvent<T> {
-    private readonly _name: string;
-    private readonly _maxListeners: number;
-
     private _handlers: EventHandler<T>[] = [];
 
-    constructor (config: EventConfig) {
-        this._name = config.name;
-
-        this._maxListeners = config.maxListeners || 10;
-    }
+    constructor (private readonly _name: string) {}
 
     public on(handler: EventHandler<T>) {
-        if (this._handlers.includes(handler) || this._handlers.length >= this._maxListeners) {
-            console.warn(`Event "${this._name}" has max number of handlers. Adding skipped`);
+        if (this._handlers.includes(handler)) {
+            console.warn(`Handler already added to event "${this._name}"`);
             return null;
         }
 
