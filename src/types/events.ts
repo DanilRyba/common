@@ -5,10 +5,4 @@ export interface IEvent<T = unknown> {
     trigger(data?: T): void;
 }
 
-export type EventConfig = {
-    name: string;
-
-    maxListeners?: number;
-};
-
 export type EventHandler<T = unknown> = (data?: T) => void | Promise<void>;
