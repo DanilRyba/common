@@ -1,6 +1,6 @@
 {
   "name": "@danilryba/common",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple utilities for JS/TS projects",
   "repository": {
     "type": "git",
